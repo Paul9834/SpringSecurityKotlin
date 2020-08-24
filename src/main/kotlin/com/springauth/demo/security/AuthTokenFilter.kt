@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse
 class AuthTokenFilter : OncePerRequestFilter(){
 
     @Autowired
-    private lateinit var userDetailsServiceImpl:UserDetailsServiceImpl
+    private lateinit var userDetailsServiceImpl2: UserDetailsServiceImpl
 
     @Autowired
     private val jwtUtils: JwtUtils? = null
@@ -36,7 +36,7 @@ class AuthTokenFilter : OncePerRequestFilter(){
                 if (jwt != null && jwtUtils.validJwtToken(jwt)) {
 
                     val username = jwtUtils.getUserNameFromJwtToken(jwt)
-                    val userDetails:UserDetails = userDetailsServiceImpl.loadByUserName(username)
+                    val userDetails:UserDetails = userDetailsServiceImpl2.loadUserByUsername(username)
 
                     val authentication = UsernamePasswordAuthenticationToken(userDetails, null, userDetails.authorities)
 

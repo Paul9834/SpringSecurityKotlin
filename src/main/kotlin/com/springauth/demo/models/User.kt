@@ -12,13 +12,9 @@ import javax.validation.constraints.Size
             UniqueConstraint(columnNames = arrayOf("email"))])
 data class User (
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id:Long = 0,
-
     @NotBlank
     @Size(max = 20)
-    val username:String,
+    var username:String,
 
     @NotBlank
     @Email
@@ -33,5 +29,11 @@ data class User (
     @JoinTable(	name = "user_roles",
             joinColumns = [JoinColumn(name = "user_id")],
             inverseJoinColumns = [JoinColumn(name = "role_id")])
-    val roles: MutableSet<Role> = hashSetOf()
+    var roles: MutableSet<Role> = hashSetOf(),
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id:Long = 0
+
+
 )

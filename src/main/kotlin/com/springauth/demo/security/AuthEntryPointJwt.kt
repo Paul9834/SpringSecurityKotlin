@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServletResponse
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component
 
+
+@Component
 class AuthEntryPointJwt : AuthenticationEntryPoint {
 
     private val logger: Logger = LoggerFactory.getLogger(AuthEntryPointJwt::class.java)

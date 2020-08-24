@@ -23,7 +23,7 @@ class JwtUtils   {
     @Value("\${bezkoder.app.jwtExpirationMs}")
     private val jwtExpirationMs = 0
 
-    public fun generateJwtToken (authentication: Authentication) : String{
+     fun generateJwtToken (authentication: Authentication) : String{
 
         val userPrincipal:UserDetailsImpl = authentication.principal as UserDetailsImpl
 
